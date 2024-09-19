@@ -8,3 +8,5 @@ This repository contains the starter code for many different projects. They are 
 * `prepare` - Starter projects for each of the preparation Learning Activities.
 * `prove` - Starter projects for each of the prove Developer projects.
 * `final` - Starter projects for final project.
+
+I am editing the file like the assignment asks I am completing the assingment I love code
