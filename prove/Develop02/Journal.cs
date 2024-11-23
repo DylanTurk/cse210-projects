@@ -1,30 +1,33 @@
 using System;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks.Dataflow;
 
 public class Journal
 {
-    public List<Entry> _entries = new List<Entry>();
-
+    public List<Entry> entries = new List<Entry>();
     public void AddEntry()
     {
-        entry = 1;
-        Entry entry = new Entry(); 
+        Entry entry = new Entry();
+        PromptGenerator generator = new PromptGenerator();
+
+        entry._prompt = generator.RandomPrompt();
+        Console.WriteLine(entry._prompt);
+        
         entry._response = Console.ReadLine();
 
-        entry._prompt = RandomPrompt();
 
         DateTime theCurrentTime = DateTime.Now;
         entry._date = theCurrentTime.ToShortDateString();
 
-        entry += 1;
+        entries.Add(entry);
     }
 
     public void Display()
     {
-        foreach (Entry entry in _entries)
+        foreach (Entry entry in entries)
         {
-            Entry.Display();
+            entry.Display();
         }
     }
 
@@ -32,29 +35,24 @@ public class Journal
     {
         Console.WriteLine("What is the filename?");
 
-        string fileName = Console.ReadLine();
+        string filename;
+        filename = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            foreach (Entry entry in _entries)
-            {
-                outputFile.WriteLine(Entry.Display());
-            }
+
+                outputFile.WriteLine(entries);
         }
     }
 
     public void Load()
     {
-        string filename = Console.WriteLine("What is the filename?");
+        
+        Console.WriteLine("What is the filename?");
+
+        string filename = Console.ReadLine();
+        
         string[] lines = System.IO.File.ReadAllLines(filename);
-
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
-
-            string firstName = parts[0];
-            string lastName = parts[1];
-        }
     }
     
 }

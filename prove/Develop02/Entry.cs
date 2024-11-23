@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks.Dataflow;
 
 
-public class Entry
+public class Entry()
 {
     public string _prompt;
     public string _date;
@@ -11,7 +11,8 @@ public class Entry
 
     public void Display()
     {
-        Console.WriteLine($"Date: {_date} - Prompt: {_prompt}")
-        Console.WriteLine(_response)
+        Console.WriteLine($"Date: {_date} - Prompt: {_prompt}");
+        Console.WriteLine(_response);
+        Console.WriteLine(" ");
     }
 }

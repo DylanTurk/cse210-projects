@@ -4,38 +4,43 @@ using System.Threading.Tasks.Dataflow;
 
 class Program
 {
-
+    
     static void Main(string[] args)
     {
-        Console.WriteLine("Please select one of the following choices");
-        Console.WriteLine("1. Write");
-        Console.WriteLine("2. Display");
-        Console.WriteLine("3. Load");
-        Console.WriteLine("4. Save");
-        Console.WriteLine("5. Quit");
-        Console.WriteLine("What would you like to do? ");
-        string askChoice = Console.ReadLine();
-        int choice = int.Parse(askChoice);
 
+        Journal journal = new Journal();
+        string choice = "0";
+        
         do
         {
-            if (choice == 1)
+            Console.WriteLine("Please select one of the following choices");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
+            Console.WriteLine("What would you like to do? ");
+            choice = Console.ReadLine();
+
+        
+            if (choice == "1")
             {
-                Journal.AddEntry();
+                Console.WriteLine();
+                journal.AddEntry();
             }
-            if (choice == 2)
+            if (choice == "2")
             {
-                Journal.Display();
+                journal.Display();
             }
-            if (choice == 3)
+            if (choice == "3")
             {
-                Journal.Load();
+                journal.Load();
             }
-            if (choice == 4)
+            if (choice == "4")
             {
-                Journal.Save();
+                journal.Save();
             }
 
-        } while (choice != 5);
+        } while (choice != "5");
     }
 }
