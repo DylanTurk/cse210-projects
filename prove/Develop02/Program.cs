@@ -1,9 +1,41 @@
 using System;
+using System.IO;
+using System.Threading.Tasks.Dataflow;
 
 class Program
 {
+
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
+        Console.WriteLine("Please select one of the following choices");
+        Console.WriteLine("1. Write");
+        Console.WriteLine("2. Display");
+        Console.WriteLine("3. Load");
+        Console.WriteLine("4. Save");
+        Console.WriteLine("5. Quit");
+        Console.WriteLine("What would you like to do? ");
+        string askChoice = Console.ReadLine();
+        int choice = int.Parse(askChoice);
+
+        do
+        {
+            if (choice == 1)
+            {
+                Journal.AddEntry();
+            }
+            if (choice == 2)
+            {
+                Journal.Display();
+            }
+            if (choice == 3)
+            {
+                Journal.Load();
+            }
+            if (choice == 4)
+            {
+                Journal.Save();
+            }
+
+        } while (choice != 5);
     }
 }
