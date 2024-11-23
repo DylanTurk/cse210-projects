@@ -13,6 +13,7 @@ class Program
         
         do
         {
+            Console.WriteLine(" ");
             Console.WriteLine("Please select one of the following choices");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
@@ -25,20 +26,23 @@ class Program
         
             if (choice == "1")
             {
-                Console.WriteLine();
                 journal.AddEntry();
+                
             }
             if (choice == "2")
             {
                 journal.Display();
+                
             }
             if (choice == "3")
             {
                 journal.Load();
+                
             }
             if (choice == "4")
             {
                 journal.Save();
+                
             }
 
         } while (choice != "5");
